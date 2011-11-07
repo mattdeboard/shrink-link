@@ -1,4 +1,3 @@
-src/clj_shrink/db.clj
 src/clj_shrink/secret.clj
 pom.xml
 *jar

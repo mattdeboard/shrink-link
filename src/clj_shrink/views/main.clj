@@ -23,13 +23,13 @@
   [:head
    [:title "Clj-Shrink URL Shortener"]])
 
-(defpartial link-form [{:keys [sourceurl]}]
+(defpartial link-form [& {:keys [sourceurl]}]
   (text-field {:placeholder "Link to Shrink"} "mainInput" sourceurl))
 
-(defpage [:get "/"] {:as req}
+(defpage [:get "/"] {}
   (common/layout
    (form-to [:post "/"]
-            (link-form req)
+            (link-form)
             (submit-button "Shrink"))))
 
 (defpage [:post "/"] {:as req}
