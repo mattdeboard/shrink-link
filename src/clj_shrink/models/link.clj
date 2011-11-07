@@ -28,4 +28,9 @@
                    :created (timestamp)})))
 
 (defn bulk-links [coll]
-  (insert link (values coll)))
+  (insert ltable (values coll)))
+
+(defn link-sel [s]
+  (select ltable
+          (fields :sourceurl)
+          (where {:link s})))
