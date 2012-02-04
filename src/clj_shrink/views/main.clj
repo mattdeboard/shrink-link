@@ -2,7 +2,7 @@
   (:require [clj-shrink.models.link :as slink]
             [clj-shrink.views.common :as common]
             [clj-shrink.helpers :as mc]
-            [noir.content.pages :as pages])
+            [noir.content.getting-started :as pages])
   (:use noir.core
         noir.response
         hiccup.form-helpers
@@ -23,10 +23,10 @@
   [:head
    [:title "Clj-Shrink URL Shortener"]])
 
-(defpartial link-form [& {:keys [sourceurl]}]
+(defpartial link-form [& [{:keys [sourceurl]}]]
   (text-field {:placeholder "Link to Shrink"} "mainInput" sourceurl))
 
-(defpage [:get "/"] {}
+(defpage "/" {}
   (common/layout
    (form-to [:post "/"]
             (link-form)
